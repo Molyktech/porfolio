@@ -10,7 +10,7 @@
         width: 29px;
         height: 3px;
         margin: 0 0 5px 0;
-        background: #fff;
+        background: set-text-color($primary-color);
         @include easeOut;
     } //Rotate into X with menu lines
     &.close {
@@ -99,7 +99,7 @@
         font-size: 35px;
         padding: 1rem 0;
         font-weight: 300;
-        color: #fff;
+        color: set-text-color($primary-color);
         @include easeOut;
         &:hover {
             color: $secondary-color
