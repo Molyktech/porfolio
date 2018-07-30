@@ -154,6 +154,12 @@ header {
 .text-secondary {
   color: #053113; }
 
+.text-tetiary {
+  color: darkcyan; }
+
+.text-blue {
+  color: #05fbf8; }
+
 main {
   padding: 4rem;
   min-height: calc(100vh - 60px); }
@@ -178,10 +184,10 @@ main {
 .bio-image {
   grid-area: bioimage;
   margin: auto;
-  height: 200px;
-  width: 200px;
+  height: 290px;
+  width: 290px;
   border-radius: 50%;
-  border: 3px solid #053113; }
+  border: 3px solid darkcyan; }
 
 .bio {
   grid-area: bio;
@@ -199,7 +205,54 @@ main {
 .job {
   background: #0d0d0d;
   padding: 0.5rem;
-  border-bottom: 5px solid #053113; }
+  border-bottom: 5px solid darkcyan; }
+
+.projects {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr); }
+  .projects img {
+    width: 100%;
+    border: 3px solid #fff; }
+    .projects img:hover {
+      opacity: 0.6;
+      border-color: #05fbf8;
+      transition: all 0.8s ease-out; }
+
+.btn, .btn-dark, .btn-light {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 0;
+  margin-bottom: 0.3rem; }
+  .btn:hover, .btn-dark:hover, .btn-light:hover {
+    background-color: #05fbf8;
+    color: #000; }
+
+.btn-dark {
+  background: black;
+  color: #fff; }
+
+.btn-light {
+  background: #c4c4c4; }
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem; }
+  .boxes div {
+    font-size: 2rem;
+    border: 3px solid #fff;
+    padding: 1.5rem 2.5rem;
+    margin-bottom: 3rem;
+    transition: all 0.8s ease-out; }
+    .boxes div:hover {
+      padding: 0.5rem 1.5rem;
+      background: #05fbf8;
+      color: #000; }
+      .boxes div:hover span {
+        color: #000; }
 
 #main-footer {
   text-align: center;
@@ -239,8 +292,12 @@ main {
       height: 150px; }
   .about-info {
     grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
-    grid-template-columns: 1fr; } }
+    grid-template-columns: 1fr; }
+  .projects {
+    grid-template-columns: repeat(2, 1fr); } }
 
 @media screen and (max-width: 500px) {
   main#home h1 {
-    margin-top: 10vh; } }
+    margin-top: 10vh; }
+  .projects {
+    grid-template-columns: 1fr; } }
