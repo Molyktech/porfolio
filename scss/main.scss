@@ -1,0 +1,188 @@
+@import 'config';
+@import 'menu';
+* {
+    box-sizing: border-box;
+}
+
+body {
+    @include background;
+    background: $primary-color;
+    height: 100%;
+    margin: 0;
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5;
+    color: set-text-color($primary-color);
+}
+
+//HEADINGS
+h1,
+h2,
+h3 {
+    margin: 0;
+    font-weight: 400;
+    &.heading {
+        font-size: 5rem;
+    }
+    &.sm-heading {
+        margin-bottom: 2rem;
+        padding: 0.2rem 1rem;
+        background: rgba(lighten($color: #444, $amount: 2), 0.5);
+    }
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header {
+    position: fixed; // always stay at the top
+    z-index: 2; // so its always at the front the bigger the number the closer the element it is to u
+    width: 100%;
+}
+
+.text-secondary {
+    color: #053113;
+}
+
+.text-tetiary {
+    color: darkcyan;
+}
+
+.text-blue {
+    color: $secondary-color;
+}
+
+main {
+    padding: 4rem;
+    min-height: calc(100vh - 60px);
+    .icons {
+        margin-top: 1rem;
+        a {
+            padding: 0.5rem;
+            &:hover {
+                color: $secondary-color;
+                @include easeOut();
+            }
+        }
+    }
+    &#home {
+        overflow: hidden; //no scrollbars
+        h1 {
+            margin-top: 20vh;
+        }
+    }
+}
+
+.about-info {
+    display: grid;
+    grid-template-areas: 'bioimage bio bio' // bio image takes up 1 space and bio takes up two spaces
+    'job1 job2 job3';
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+}
+
+.bio-image {
+    grid-area: bioimage;
+    margin: auto;
+    height: 290px;
+    width: 290px;
+    border-radius: 50%;
+    border: 3px solid darkcyan;
+}
+
+.bio {
+    grid-area: bio;
+    font-size: 1rem;
+}
+
+.job-1 {
+    grid-area: job1;
+}
+
+.job-2 {
+    grid-area: job2;
+}
+
+.job-3 {
+    grid-area: job3;
+}
+
+.job {
+    background: lighten(#000, 5);
+    padding: 0.5rem;
+    border-bottom: 5px solid darkcyan
+}
+
+//portfolio
+.projects {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    img {
+        width: 100%; //height: 450px;
+        border: 3px solid #fff;
+        &:hover {
+            opacity: 0.6;
+            border-color: $secondary-color;
+            @include easeOut;
+        }
+    }
+}
+
+//button
+.btn {
+    display: block;
+    padding: 0.5rem 1rem;
+    border: 0;
+    margin-bottom: 0.3rem;
+    &:hover {
+        background-color: $secondary-color;
+        color: set-text-color($secondary-color);
+    }
+}
+
+.btn-dark {
+    @extend .btn;
+    background: darken($primary-color, 50);
+    color: #fff;
+}
+
+.btn-light {
+    @extend .btn;
+    background: lighten($color: $primary-color, $amount: 50)
+}
+
+//contact 
+.boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 1rem;
+    div {
+        font-size: 2rem;
+        border: 3px solid #fff;
+        padding: 1.5rem 2.5rem;
+        margin-bottom: 3rem;
+        @include easeOut;
+        &:hover {
+            padding: 0.5rem 1.5rem;
+            background: $secondary-color;
+            color: set-text-color($secondary-color);
+            span {
+                color: set-text-color($secondary-color);
+            }
+        }
+    }
+}
+
+#main-footer {
+    text-align: center;
+    padding: 1rem;
+    color: set-text-color($primary-color);
+    background: darken($primary-color, 10);
+    height: 60px;
+}
+
+@import 'mobile'; //at the bottom so it can run after the css has loaded
